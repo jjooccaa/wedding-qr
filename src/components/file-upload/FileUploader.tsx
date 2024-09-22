@@ -1,16 +1,9 @@
-// import { useState } from "react";
 import { FileUpload } from "./FileUpload";
-import { supabase } from "../clients/supabase.client";
+import { supabase } from "../../clients/supabase.client";
 
-export function FileUploadDemo() {
-  // const [files, setFiles] = useState<File[]>([]);
-  // const handleFileUpload = (files: File[]) => {
-  //   setFiles(files);
-  //   console.log(files);
-  // };
-
+const FileUploader = () => {
   const handleUpload = async (files: File[]) => {
-      files.forEach(async (file) => {
+    files.forEach(async (file) => {
       const fileExt = file.name.split('.').pop();
       const fileName = `uploads/${Date.now()}.${fileExt}`;
 
@@ -27,7 +20,6 @@ export function FileUploadDemo() {
 
       console.log('File uploaded:', data);
     })
-    // setFiles(files);
   };
 
   return (
@@ -36,3 +28,5 @@ export function FileUploadDemo() {
     </div>
   );
 }
+
+export default FileUploader;

@@ -1,15 +1,19 @@
-import CarouselDemo from "../components/CarouselDemo";
-import { FileUploadDemo } from "../components/FileUploadDemo";
-import { ImagesSliderDemo } from "../components/ImagesSliderDemo";
-import { TimelineDemo } from "../components/Timelinedemo";
+import Carousel from "../components/carousel/Carousel";
+import FileUploader from "../components/file-upload/FileUploader";
+import Footer from "../components/footer/Footer";
+import { ImagesSliderDemo } from "../components/images-slider/ImagesSliderDemo";
+import ReceivePhotos from "../components/receive-photos/ReceivePhotos";
+import { TimelineDemo } from "../components/timeline/Timelinedemo";
 
 const Home = () => {
   return (
     <>
       <ImagesSliderDemo />
-      <FileUploadDemo />
-      <CarouselDemo />
+      <FileUploader />
+      <Carousel />
       <TimelineDemo />
+      <ReceivePhotos />
+      <Footer />
     </>
   );
 }
