@@ -1,4 +1,3 @@
-import { BackgroundBeamsDemo } from "../components/Background";
 import CarouselDemo from "../components/CarouselDemo";
 import { FileUploadDemo } from "../components/FileUploadDemo";
 import { ImagesSliderDemo } from "../components/ImagesSliderDemo";
@@ -11,7 +10,6 @@ const Home = () => {
       <FileUploadDemo />
       <CarouselDemo />
       <TimelineDemo />
-      {/* <BackgroundBeamsDemo /> */}
     </>
   );
 }

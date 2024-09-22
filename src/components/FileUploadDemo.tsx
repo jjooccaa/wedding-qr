@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { FileUpload } from "./FileUpload";
 import { supabase } from "../clients/supabase.client";
 
 export function FileUploadDemo() {
-  const [files, setFiles] = useState<File[]>([]);
+  // const [files, setFiles] = useState<File[]>([]);
   // const handleFileUpload = (files: File[]) => {
   //   setFiles(files);
   //   console.log(files);
@@ -27,7 +27,7 @@ export function FileUploadDemo() {
 
       console.log('File uploaded:', data);
     })
-    setFiles(files);
+    // setFiles(files);
   };
 
   return (

@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { ImagesSlider } from "./ImagesSlider";
-import { SupabaseService } from "../services/supabase.service";
 import image from "../assets/image.jpg";
 
 export function ImagesSliderDemo() {
