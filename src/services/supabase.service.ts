@@ -41,4 +41,18 @@ export class SupabaseService {
 
     return urls.filter(url => url !== null) as string[];
   }
+
+  public static async createEmail(email: string): Promise<void> {
+    const { error } = await supabase
+      .from('emails')
+      .insert([
+        { email: email }
+      ])
+      .select()
+
+    if (error) {
+      console.error('Error adding email:', error.message);
+      throw new Error(error.message);
+    }
+  }
 }

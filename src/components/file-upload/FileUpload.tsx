@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 import { cn } from "../../lib/utils";
+import { FileUploadProps } from "../../types/props/FileUploadProps";
 
 const mainVariant = {
   initial: {
@@ -25,11 +26,7 @@ const secondaryVariant = {
   },
 };
 
-export const FileUpload = ({
-  onChange,
-}: {
-  onChange?: (files: File[]) => void;
-}) => {
+export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 

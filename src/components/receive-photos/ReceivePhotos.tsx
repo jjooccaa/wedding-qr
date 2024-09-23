@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { SupabaseService } from '../../services/supabase.service';
 
 const ReceivePhotos: React.FC = () => {
   const [inputEmail, setInputEmail] = useState<string>('');
@@ -10,13 +11,19 @@ const ReceivePhotos: React.FC = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!validateEmail(inputEmail)) {
       setErrorMessage('Molim vas unesite validnu email adresu.');
     } else {
-      setErrorMessage('');
-      setIsSubmitted(true);
+      try {
+        await SupabaseService.createEmail(inputEmail);
+        setErrorMessage('');
+        setIsSubmitted(true);
+      } catch (error: any) {
+        const errorMessage = error.message as string ?? 'Nesto se desilo, pokusajte opet!';
+        setErrorMessage(errorMessage.includes('duplicate') ? 'Vec postoji ovaj mail' : errorMessage);
+      }
     }
   }, [inputEmail]);
 

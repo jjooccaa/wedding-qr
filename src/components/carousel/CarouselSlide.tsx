@@ -1,9 +1,5 @@
 import React from 'react';
-
-interface CarouselSlideProps {
-  imgSrc: string;
-  isActive: boolean;
-}
+import { CarouselSlideProps } from '../../types/props/CarouselSlideProps';
 
 const CarouselSlide: React.FC<CarouselSlideProps> = ({ imgSrc, isActive }) => {
   return (
