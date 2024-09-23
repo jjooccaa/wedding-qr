@@ -23,7 +23,7 @@ const FileUploader = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-neutral-900 border-neutral-700 rounded-lg">
+    <div className="w-full max-w-4xl mx-auto min-h-96 border bg-neutral-900 border-neutral-800">
       <FileUpload onChange={handleUpload} />
     </div>
   );

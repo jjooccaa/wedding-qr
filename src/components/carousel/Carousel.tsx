@@ -51,7 +51,7 @@ const Carousel: React.FC = () => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-4xl mx-auto bg-neutral-900">
       <h2 className="text-2xl font-bold text-white mb-4 text-center">Poslednje dodate fotografije</h2>
       <div
         ref={containerRef}

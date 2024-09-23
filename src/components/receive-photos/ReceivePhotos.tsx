@@ -21,7 +21,7 @@ const ReceivePhotos: React.FC = () => {
   }, [inputEmail]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-neutral-900">
       <div className="bg-neutral-800 m-3 py-8 px-3 w-full max-w-3xl rounded-lg">
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <h2 className="text-3xl font-bold text-white mb-4">Zatraži slike</h2>
