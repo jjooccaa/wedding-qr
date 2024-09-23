@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import CarouselSlide from './CarouselSlide';
 import CarouselButton from './CarouselButton';
-import { SupabaseService } from '../../services/supabase.service';
+import { BUCKET_NAME, SupabaseService } from '../../services/supabase.service';
 
 const Carousel: React.FC = () => {
   const [slides, setSlides] = useState<string[]>([]);
@@ -12,9 +12,8 @@ const Carousel: React.FC = () => {
   const fetchImages = useCallback(async () => {
     setIsLoading(true);
     try {
-      const bucketName = 'Wedding Photos';
-      const imagePaths = await SupabaseService.fetchImagePaths(bucketName);
-      const imageUrls = await SupabaseService.generatePublicUrls(bucketName, imagePaths);
+      const imagePaths = await SupabaseService.fetchImagePaths(BUCKET_NAME);
+      const imageUrls = await SupabaseService.generatePublicUrls(BUCKET_NAME, imagePaths);
       setSlides(imageUrls);
     } catch (error) {
       console.error('Error fetching images:', error);
@@ -52,7 +51,7 @@ const Carousel: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-4xl mx-auto bg-neutral-900">
-      <h2 className="text-2xl font-bold text-white mb-4 text-center">Poslednje dodate fotografije</h2>
+      <h2 className="text-2xl font-bold text-white pb-6 text-center">Poslednje dodate fotografije</h2>
       <div
         ref={containerRef}
         className="flex overflow-x-hidden snap-x snap-mandatory scrollbar-hide"

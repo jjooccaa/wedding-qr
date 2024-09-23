@@ -37,7 +37,7 @@ const ReceivePhotos: React.FC = () => {
           </p>
           <div className="w-full mb-4">
             <input
-              type="email"
+              // type="email"
               placeholder="Vaš email"
               value={inputEmail}
               onChange={(event: ChangeEvent<HTMLInputElement>) => setInputEmail(event.target.value)}
@@ -58,7 +58,7 @@ const ReceivePhotos: React.FC = () => {
             <button
               disabled={inputEmail.length === 0}
               type="submit"
-              className="w-full py-3 px-4 bg-purple-800 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 px-4 bg-purple-800 text-white font-semibold rounded-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:ring-offset-2 focus:ring-offset-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Prijavi se
             </button>

@@ -71,8 +71,8 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
           <p className="relative z-20 font-sans font-bold text-neutral-300 text-base">
             Dodaj fotografije
           </p>
-          <p className="relative z-20 font-sans font-normal text-neutral-400 text-base mt-2">
-            Prevuci ili klikni da bi dodao svoje fotografije (Limit je 10 mb po fotografiji)
+          <p className="relative z-20 font-sans text-center font-normal text-neutral-400 text-base mt-2">
+            Prevuci ili klikni da bi dodao svoje fotografije (Limit je 20 mb po fotografiji)
           </p>
           <div className="relative w-full mt-10 max-w-xl mx-auto">
             {files.length > 0 &&
@@ -140,7 +140,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
                 )}
               >
                 {isDragActive ? (
-                    <motion.p
+                  <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="text-neutral-300 flex flex-col items-center"
@@ -162,12 +162,13 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
             )}
 
             {files.length > 0 && (
-                    <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4"> 
-                    <span>Postavi jos →</span>
-                    <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
-                  </button>
+              <div className="flex justify-center mt-4">
+                <button className="px-4 py-2 backdrop-blur-sm border bg-purple-300/10 border-purple-500/20 text-white mx-auto text-center rounded-full relative mt-4">
+                  <span>Postavi još →</span>
+                  <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-purple-500 to-transparent" />
+                </button>
+              </div>
             )}
-
           </div>
         </div>
       </motion.div>
@@ -178,6 +179,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
 export function GridPattern() {
   const columns = 41;
   const rows = 11;
+
   return (
     <div className="flex bg-neutral-900 flex-shrink-0 flex-wrap justify-center items-center gap-x-px gap-y-px scale-105">
       {Array.from({ length: rows }).map((_, row) =>
@@ -186,11 +188,10 @@ export function GridPattern() {
           return (
             <div
               key={`${col}-${row}`}
-              className={`w-10 h-10 flex flex-shrink-0 rounded-[2px] ${
-                index % 2 === 0
-                  ? "bg-neutral-950"
-                  : "bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
-              }`}
+              className={`w-10 h-10 flex flex-shrink-0 rounded-[2px] ${index % 2 === 0
+                ? "bg-neutral-950"
+                : "bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
+                }`}
             />
           );
         })

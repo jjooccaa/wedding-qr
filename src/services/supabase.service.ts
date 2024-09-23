@@ -1,8 +1,7 @@
 import { supabase } from "../clients/supabase.client";
+import { FileData } from "../types/FileData";
 
-interface FileData {
-  name: string;
-}
+export const BUCKET_NAME = 'Wedding Photos';
 
 export class SupabaseService {
   public static async fetchImagePaths(bucketName: string): Promise<FileData[]> {
