@@ -7,14 +7,14 @@ import { TimelineDemo } from "../components/timeline/Timelinedemo";
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-neutral-900">
       <ImagesSlider />
       <FileUploader />
       <Carousel />
       <TimelineDemo />
       <ReceivePhotos />
       <Footer />
-    </>
+    </div>
   );
 }
 
