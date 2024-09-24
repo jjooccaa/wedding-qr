@@ -3,7 +3,7 @@ import FileUploader from "../components/file-upload/FileUploader";
 import Footer from "../components/footer/Footer";
 import ImagesSlider from "../components/images-slider/ImagesSlider";
 import ReceivePhotos from "../components/receive-photos/ReceivePhotos";
-import { TimelineDemo } from "../components/timeline/Timelinedemo";
+import Timeline from "../components/timeline/TimelineData";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <ImagesSlider />
       <FileUploader />
       <Carousel />
-      <TimelineDemo />
+      <Timeline />
       <ReceivePhotos />
       <Footer />
     </div>

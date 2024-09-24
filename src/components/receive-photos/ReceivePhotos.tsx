@@ -13,6 +13,7 @@ const ReceivePhotos: React.FC = () => {
 
   const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (!validateEmail(inputEmail)) {
       setErrorMessage('Molim vas unesite validnu email adresu.');
     } else {
