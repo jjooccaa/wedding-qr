@@ -76,7 +76,7 @@ export const FileUpload = () => {
             cacheControl: '3600',
             upsert: false
           });
-
+        console.log(data);
 
         if (error) {
           throw error;

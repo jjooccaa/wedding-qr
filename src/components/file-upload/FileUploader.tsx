@@ -39,7 +39,7 @@ const FileUploader = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto min-h-96 bg-neutral-900">
-      <FileUpload onChange={handleUpload} />
+      <FileUpload />
       {uploadStatus && (
         <div className={`mt-4 p-3 rounded-md border ${uploadStatus.success
             ? 'bg-purple-900/20 border-purple-500/20 text-purple-300'
