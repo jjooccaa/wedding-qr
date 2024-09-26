@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 import { cn } from "../../lib/utils";
-import { FileUploadProps } from "../../types/props/FileUploadProps";
+import { supabase } from "../../clients/supabase.client";
+import { BUCKET_NAME } from "../../services/supabase.service";
+import { ExtendedFile } from "../../types/ExtendedFile";
+import { Statuses } from "../../enums/Statuses";
 
 const mainVariant = {
   initial: {
@@ -26,13 +29,74 @@ const secondaryVariant = {
   },
 };
 
-export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
-  const [files, setFiles] = useState<File[]>([]);
+
+
+const randomString = (length = 5) => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  const charactersLength = characters.length;
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+}
+
+export const FileUpload = () => {
+  const [files, setFiles] = useState<ExtendedFile[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const handleUpload = async (newFiles: File[]) => {
+    const extendedFiles: ExtendedFile[] = newFiles.map((file, index) => {
+      const extendedFile = {
+        id: Date.now() + index,
+        status: Statuses.IDLE,
+        url: null,
+        file: file
+      };
+
+      return extendedFile;
+    });
+
+    setFiles(prevFiles => [...prevFiles, ...extendedFiles]);
+
+    for (const file of extendedFiles) {
+      try {
+        setFiles(prevFiles =>
+          prevFiles.map(f => f.id === file.id ? { ...f, status: Statuses.UPLOADING } : f)
+        );
+        console.log(file.file)
+        const fileExt = file.file.name.split('.').pop();
+        const fileName = `uploads/${Date.now()}${randomString(5)}.${fileExt}`;
+
+        const { data, error } = await supabase.storage
+          .from(BUCKET_NAME)
+          .upload(fileName, file.file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+
+        if (error) {
+          throw error;
+        }
+        // const url = `https://pezxxijnecsxslyzeqnp.supabase.co/storage/v1/object/public/${data.path}`
+        setFiles(prevFiles =>
+          prevFiles.map(f => f.id === file.id ? { ...f, status: Statuses.SUCCESS } : f)
+        );
+
+      } catch (error) {
+        console.error('Upload error:', error);
+        setFiles(prevFiles =>
+          prevFiles.map(f => f.id === file.id ? { ...f, status: Statuses.ERROR } : f)
+        );
+      }
+    }
+  };
+
   const handleFileChange = (newFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    onChange && onChange(newFiles);
+    handleUpload(newFiles);
   };
 
   const handleClick = () => {
@@ -49,7 +113,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
   });
 
   return (
-    <div className="w-full" {...getRootProps()}>
+    <div className="w-full max-w-4xl mx-auto min-h-96 bg-neutral-900" {...getRootProps()}>
       <motion.div
         onClick={handleClick}
         whileHover="animate"
@@ -92,15 +156,24 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
                       layout
                       className="text-base text-neutral-300 truncate max-w-xs"
                     >
-                      {file.name}
+                      {file.file.name}
                     </motion.p>
                     <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       layout
-                      className="rounded-lg px-2 py-1 w-fit flex-shrink-0 text-sm bg-neutral-700 text-white shadow-input"
+                      className={cn(
+                        "rounded-lg px-2 py-1 w-fit flex-shrink-0 text-sm shadow-input",
+                        file.status === Statuses.IDLE && "bg-neutral-700 text-white",
+                        file.status === Statuses.UPLOADING && "bg-purple-300/10 text-white",
+                        file.status === Statuses.SUCCESS && "bg-purple-900 text-white",
+                        file.status === Statuses.ERROR && "bg-red-500 text-white"
+                      )}
                     >
-                      {(file.size / (1024 * 1024)).toFixed(2)} MB
+                      {file.status === Statuses.IDLE && 'Na čekanju'}
+                      {file.status === Statuses.UPLOADING && 'Postavlja se...'}
+                      {file.status === Statuses.SUCCESS && 'Postavljeno'}
+                      {file.status === Statuses.ERROR && 'Greška'}
                     </motion.p>
                   </div>
 
@@ -111,17 +184,26 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onChange }) => {
                       layout
                       className="px-1 py-0.5 rounded-md bg-neutral-700"
                     >
-                      {file.type}
+                      {file.file.type}
                     </motion.p>
-
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      layout
-                    >
-                      modified{" "}
-                      {new Date(file.lastModified).toLocaleDateString()}
-                    </motion.p>
+                    <div className="flex flex-row items-center justify-between w-full">
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        layout
+                      >
+                        modified{" "}
+                        {new Date(file.file.lastModified).toLocaleDateString()}
+                      </motion.p>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        layout
+                        className="rounded-lg px-2 py-1 w-fit flex-shrink-0 text-sm bg-neutral-700 text-white shadow-input"
+                      >
+                        {(file.file.size / (1024 * 1024)).toFixed(2)} MB
+                      </motion.p>
+                    </div>
                   </div>
                 </motion.div>
               ))}

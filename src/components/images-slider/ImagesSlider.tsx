@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import Slider from "./Slider";
 import image1 from "../../assets/background-images/background-one.jpg";
+import image2 from "../../assets/background-images/background-two.jpg";
 import image3 from "../../assets/background-images/background-three.jpg";
+import image4 from "../../assets/background-images/background-four.jpg";
 
-const images = [image1, image3];
+const images = [image1, image2, image3, image4];
 
 const textAnimation = {
   initial: { opacity: 0, y: -80 },
@@ -30,7 +32,7 @@ const ImagesSlider = () => {
           {...textAnimation}
           className="z-50 flex flex-col justify-center items-center"
         >
-          <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+          <motion.p className="font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
             Jovan i Jovana
           </motion.p>
         </motion.div>

@@ -1,5 +1,5 @@
 import Carousel from "../components/carousel/Carousel";
-import FileUploader from "../components/file-upload/FileUploader";
+import { FileUpload } from "../components/file-upload/FileUpload";
 import Footer from "../components/footer/Footer";
 import ImagesSlider from "../components/images-slider/ImagesSlider";
 import ReceivePhotos from "../components/receive-photos/ReceivePhotos";
@@ -9,9 +9,9 @@ const Home = () => {
   return (
     <div className="bg-neutral-900">
       <ImagesSlider />
-      <FileUploader />
+      <FileUpload />
       <Carousel />
-      <Timeline />
+      {/* <Timeline /> */}
       <ReceivePhotos />
       <Footer />
     </div>
