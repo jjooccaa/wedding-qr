@@ -8,6 +8,11 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Lato', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        script: ['Great Vibes', 'cursive'],
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
       },

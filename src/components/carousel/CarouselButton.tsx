@@ -1,7 +1,6 @@
-import React from 'react';
 import { CarouselButtonProps } from '../../types/props/CarouselButtonProps';
 
-const CarouselButton: React.FC<CarouselButtonProps> = ({ direction, onClick }) => {
+const CarouselButton = ({ direction, onClick }: CarouselButtonProps) => {
   return (
     <button
       onClick={onClick}

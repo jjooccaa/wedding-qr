@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import CarouselSlide from './CarouselSlide';
 import CarouselButton from './CarouselButton';
 import { BUCKET_NAME, SupabaseService } from '../../services/supabase.service';
@@ -34,40 +35,35 @@ const Carousel: React.FC = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
   }, [slides.length]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const scrollToCurrentSlide = () => {
-      const slideWidth = container.clientWidth;
-      container.scrollTo({
-        left: currentIndex * slideWidth,
-        behavior: 'smooth'
-      });
-    };
-
-    scrollToCurrentSlide();
-  }, [currentIndex]);
-
   return (
-    <div className="relative w-full max-w-4xl mx-auto bg-neutral-900">
-      <h2 className="text-2xl font-bold text-white pb-6 text-center">Poslednje dodate fotografije</h2>
+    <div className="relative bg-gradient-to-b from-neutral-900 to-neutral-800 w-full max-w-4xl mx-auto py-12">
+      <h2 className="text-3xl font-script text-purple-300 pb-8 text-center">
+        Najnovije fotografije
+      </h2>
       <div
         ref={containerRef}
-        className="flex overflow-x-hidden snap-x snap-mandatory scrollbar-hide"
+        className="relative h-[28rem] overflow-hidden"
       >
         {isLoading ? (
-          <div className="flex items-center justify-center w-full h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+          <div className="flex items-center justify-center w-full h-full">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-300"></div>
           </div>
         ) : (
-          slides.map((slide, index) => (
-            <CarouselSlide
-              key={index}
-              imgSrc={slide}
-              isActive={index === currentIndex}
-            />
-          ))
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0"
+            >
+              <CarouselSlide
+                imgSrc={slides[currentIndex]}
+                isActive={true}
+              />
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
       {slides.length > 1 && (
@@ -76,6 +72,17 @@ const Carousel: React.FC = () => {
           <CarouselButton direction="next" onClick={nextSlide} />
         </>
       )}
+      <div className="flex justify-center mt-4 space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full ${
+              index === currentIndex ? 'bg-purple-500' : 'bg-purple-300'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

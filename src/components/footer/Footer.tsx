@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-neutral-900 text-white py-8">
+    <footer className="bg-gradient-to-b from-neutral-900 to-neutral-800 text-white py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex flex-col items-center">
           <div className="mb-4">

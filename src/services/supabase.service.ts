@@ -10,7 +10,7 @@ export class SupabaseService {
     const { data, error } = await supabase.storage
       .from(bucketName)
       .list(folderPath, {
-        limit: 10,
+        limit: 12,
         offset: 0,
         sortBy: { column: 'created_at', order: 'desc' }
       });

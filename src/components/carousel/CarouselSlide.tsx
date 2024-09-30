@@ -1,16 +1,20 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { CarouselSlideProps } from '../../types/props/CarouselSlideProps';
 
-const CarouselSlide: React.FC<CarouselSlideProps> = ({ imgSrc, isActive }) => {
+const CarouselSlide = ({ imgSrc }: CarouselSlideProps) => {
   return (
-    <div className={`w-full flex-shrink-0 snap-center ${isActive ? 'opacity-100' : 'opacity-50'} transition-opacity duration-300`}>
+    <motion.div
+      className="w-full h-full"
+      initial={{ scale: 1.1, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <img
         src={imgSrc}
         alt="Carousel slide"
-        className="w-full h-64 object-cover"
-        loading="lazy"
+        className="w-full h-full object-cover rounded-lg shadow-lg"
       />
-    </div>
+    </motion.div>
   );
 };
 

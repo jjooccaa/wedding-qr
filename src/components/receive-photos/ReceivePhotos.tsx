@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { motion } from 'framer-motion';
 import { SupabaseService } from '../../services/supabase.service';
 
 const ReceivePhotos: React.FC = () => {
@@ -29,43 +30,59 @@ const ReceivePhotos: React.FC = () => {
   }, [inputEmail]);
 
   return (
-    <div className="flex justify-center bg-neutral-900">
-      <div className="bg-neutral-800 m-3 py-8 px-3 w-full max-w-3xl rounded-lg">
+    <div className="flex justify-center bg-gradient-to-b from-neutral-800 to-neutral-900 py-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-neutral-800 m-3 py-7 px-6 w-full max-w-3xl rounded-lg shadow-2xl border border-purple-500/20"
+      >
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Zatraži slike</h2>
-          <p className="text-xl text-neutral-300 mb-6 text-center">
-            Ako želite da dobijete link do svih fotografija, ostavite svoj mail
+          <h2 className="text-4xl font-script text-purple-300 mb-4">Zatraži slike</h2>
+          <p className="text-xl text-neutral-300 mb-8 text-center">
+            Ako želite da dobijete link do svih fotografija, ostavite svoj email
           </p>
-          <div className="w-full mb-4">
+          <div className="w-full mb-6 relative">
             <input
-              // type="email"
               placeholder="Vaš email"
               value={inputEmail}
               onChange={(event: ChangeEvent<HTMLInputElement>) => setInputEmail(event.target.value)}
               disabled={isSubmitted}
-              className={`w-full p-3 bg-neutral-700 text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`w-full p-4 bg-neutral-700 text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 ${
                 isSubmitted ? 'opacity-50 cursor-not-allowed' : 'border-neutral-600'
               } ${errorMessage ? 'border-red-500' : ''}`}
             />
             {errorMessage && (
-              <p className="mt-2 text-red-500 text-sm">{errorMessage}</p>
+              <motion.p 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-2 text-red-400 text-sm absolute"
+              >
+                {errorMessage}
+              </motion.p>
             )}
           </div>
           {isSubmitted ? (
-            <p className="text-green-400 font-semibold mb-4">
-              Link će vam stići tokom naredne nedelje.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-green-400 font-semibold mb-4 text-center"
+            >
+              Link će vam stići u toku naredne nedelje.
+            </motion.p>
           ) : (
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               disabled={inputEmail.length === 0}
               type="submit"
-              className="w-full py-3 px-4 bg-purple-800 text-white font-semibold rounded-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-900 focus:ring-offset-2 focus:ring-offset-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 px-6 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
             >
               Prijavi se
-            </button>
+            </motion.button>
           )}
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }
