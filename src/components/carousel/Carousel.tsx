@@ -60,7 +60,6 @@ const Carousel: React.FC = () => {
             >
               <CarouselSlide
                 imgSrc={slides[currentIndex]}
-                isActive={true}
               />
             </motion.div>
           </AnimatePresence>
