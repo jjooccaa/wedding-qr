@@ -94,7 +94,7 @@ const ReceivePhotos: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="py-2 mt-6"
+                className="mt-6"
               >
                 <Spinner />
               </motion.div>

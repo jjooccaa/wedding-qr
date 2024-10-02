@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
             ))}
           </div>
           <div className="mt-8 text-center text-sm text-neutral-400">
-            <p>&copy; {new Date().getFullYear()} Jovan Antic. Sva prava zadržana</p>
+            <p>&copy; {new Date().getFullYear()} Jovan Antić. Sva prava zadržana</p>
           </div>
         </div>
       </div>
