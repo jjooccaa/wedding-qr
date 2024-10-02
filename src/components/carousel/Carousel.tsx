@@ -36,7 +36,7 @@ const Carousel: React.FC = () => {
   }, [slides.length]);
 
   return (
-    <div className="bg-gradient-to-b from-neutral-900 to-neutral-800 w-full py-12">
+    <div className="bg-gradient-to-b from-neutral-900 to-neutral-800 w-full pt-20 pb-12">
       <div className="relative  max-w-4xl mx-auto">
         <h2 className="text-3xl font-script text-purple-300 pb-8 text-center">
           Najnovije fotografije

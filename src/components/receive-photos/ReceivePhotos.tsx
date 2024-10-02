@@ -47,10 +47,10 @@ const ReceivePhotos: React.FC = () => {
   }, [inputEmail]);
 
   return (
-    <div className="flex justify-center bg-gradient-to-b from-neutral-800 to-neutral-900 py-11">
+    <div className="flex justify-center bg-gradient-to-b from-neutral-800 to-neutral-900 py-12">
       <div className="bg-neutral-800 mx-3 py-7 px-6 w-full max-w-3xl rounded-lg shadow-2xl border border-purple-500/20">
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
-          <h2 className="text-4xl font-script text-purple-300 mb-4">Zatraži slike</h2>
+          <h2 className="text-4xl font-script text-purple-300 mb-4">Zatraži fotografije</h2>
           <p className="text-xl text-neutral-300 mb-8 text-center">
             Ako želite da dobijete link do svih fotografija, ostavite svoj email
           </p>

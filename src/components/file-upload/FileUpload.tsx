@@ -110,7 +110,7 @@ export const FileUpload = () => {
   });
 
   return (
-    <div className="w-full mx-auto min-h-96 bg-gradient-to-b from-neutral-800 to-neutral-900 relative overflow-hidden pb-6" {...getRootProps()}>
+    <div className="w-full mx-auto min-h-96 bg-gradient-to-b from-neutral-800 to-neutral-900 relative overflow-hidden pb-8" {...getRootProps()}>
       <motion.div
         onClick={handleClick}
         whileHover="animate"
