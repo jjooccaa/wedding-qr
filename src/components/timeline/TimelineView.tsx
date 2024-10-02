@@ -28,15 +28,15 @@ export const TimelineView = ({ data }: { data: TimelineViewProps[] }) => {
 
   return (
     <div
-      className="w-full bg-neutral-900 font-sans md:px-10 py-20"
+      className="w-full bg-gradient-to-b from-neutral-800 to-neutral-900 font-sans md:px-10 py-20"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+      <div className="max-w-7xl text-center mx-auto px-4 md:px-8 lg:px-10">
         <h2 className="text-3xl md:text-5xl mb-4 text-purple-300 font-script">
-          Naša ljubavna priča
+          Naša priča
         </h2>
-        <p className="text-neutral-300 text-sm md:text-base max-w-sm mb-12">
-          Naši najvažniji trenuci poređani hronološki
+        <p className="text-neutral-300 text-sm md:text-base mb-12">
+          Naši najvažniji trenuci
         </p>
       </div>
 
@@ -72,6 +72,8 @@ export const TimelineView = ({ data }: { data: TimelineViewProps[] }) => {
           }}
           className="absolute left-6 md:left-6 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-purple-500/30 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-purple-500/30 to-purple-500/30 to-[100%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_100%)]" />
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[linear-gradient(to_top,var(--tw-gradient-stops))] from-transparent from-[0%] via-purple-500/30 to-purple-500/30 to-[100%] [mask-image:linear-gradient(to_top,transparent_0%,black_10%,black_100%)]" />
           <motion.div
             style={{
               height: heightTransform,
