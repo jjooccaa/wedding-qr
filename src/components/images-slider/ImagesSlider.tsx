@@ -3,14 +3,15 @@ import Slider from "./Slider";
 import image1 from "../../assets/background-images/background-one.jpg";
 import image2 from "../../assets/background-images/background-two.jpg";
 import image3 from "../../assets/background-images/background-three.jpg";
-import image4 from "../../assets/background-images/background-four.jpg";
+import image5 from "../../assets/background-images/background-five.jpg";
+import image6 from "../../assets/background-images/background-six.jpg";
 
-const images = [image1, image2, image3, image4];
+const images = [image1, image2, image3, image5, image6];
 
 const textAnimation = {
   initial: { opacity: 0, y: -80 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
+  transition: { duration: 0.7 },
 };
 
 const decorationAnimation = {
