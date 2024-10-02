@@ -32,7 +32,7 @@ const arrowAnimation = {
 
 const ImagesSlider = () => {
   return (
-    <div className="relative h-screen flex flex-col">
+    <div className="relative h-dvh flex flex-col">
       <Slider className="flex-grow" images={images}>
         <motion.div
           {...textAnimation}
