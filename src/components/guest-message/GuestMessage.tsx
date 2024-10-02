@@ -59,7 +59,7 @@ const GuestMessage = () => {
               className="font-sans text-lg md:text-xl text-neutral-300 mb-6 leading-relaxed"
               variants={itemAnimation}
             >
-              P.S. Za one koji vole dobru rakijicu, obavezno probajte domaću mladu koliko i nevesta. Nema boljeg načina da nazdravimo – živeli! 🥂
+              P.S. Za one koji vole dobru rakijicu, obavezno probajte domaću, mladu koliko i nevesta. Nema boljeg načina da nazdravimo – živeli! 🥂
             </motion.p>
             <motion.p
               className="font-script text-2xl md:text-3xl text-purple-300 mt-10"
