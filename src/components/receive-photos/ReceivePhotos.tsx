@@ -1,9 +1,9 @@
-import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SupabaseService } from '../../services/supabase.service';
 import Spinner from '../spinner/Spinner';
 
-const ReceivePhotos: React.FC = () => {
+const ReceivePhotos = () => {
   const [inputEmail, setInputEmail] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);

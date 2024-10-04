@@ -4,6 +4,4 @@ export type SliderProps = {
   overlay?: boolean;
   overlayClassName?: string;
   className?: string;
-  autoplay?: boolean;
-  direction?: "up" | "down";
 }

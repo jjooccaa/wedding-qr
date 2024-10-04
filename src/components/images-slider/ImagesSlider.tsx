@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import Slider from "./Slider";
-import image1 from "../../assets/background-images/background-one.jpg";
-import image2 from "../../assets/background-images/background-two.jpg";
-import image3 from "../../assets/background-images/background-three.jpg";
-import image5 from "../../assets/background-images/background-five.jpg";
-import image6 from "../../assets/background-images/background-six.jpg";
-
-const images = [image1, image2, image3, image5, image6];
+import { useState, useEffect } from "react";
 
 const textAnimation = {
   initial: { opacity: 0, y: -80 },
@@ -32,6 +26,23 @@ const arrowAnimation = {
 };
 
 const ImagesSlider = () => {
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const imageModules = await Promise.all([
+        import("../../assets/background-images/background-one.jpg"),
+        import("../../assets/background-images/background-two.jpg"),
+        import("../../assets/background-images/background-three.jpg"),
+        import("../../assets/background-images/background-five.jpg"),
+        import("../../assets/background-images/background-six.jpg"),
+      ]);
+      setImages(imageModules.map((module) => module.default));
+    };
+
+    loadImages();
+  }, []);
+
   return (
     <div className="relative h-dvh flex flex-col bg-cream-100">
       <Slider className="flex-grow" images={images}>
