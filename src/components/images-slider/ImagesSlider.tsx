@@ -40,7 +40,7 @@ const ImagesSlider = () => {
           className="z-50 flex flex-col justify-center items-center"
         >
           <motion.p
-            className="font-script font-normal text-5xl md:text-8xl text-center text-olive-700 py-4 tracking-wider leading-tight"
+            className="font-script font-normal text-5xl md:text-8xl text-center text-olive-600 py-4 tracking-wider leading-tight"
             style={{
               textShadow: "0 0 10px rgba(92, 83, 64, 0.3), 0 0 20px rgba(92, 83, 64, 0.2), 0 0 30px rgba(92, 83, 64, 0.1)",
             }}
@@ -66,9 +66,9 @@ const ImagesSlider = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="font-sans text-lg md:text-xl text-center text-olive-800 mt-6 drop-shadow-md"
+            className="font-sans text-lg md:text-xl text-center text-olive-600 mt-6 drop-shadow-md"
           >
-            05.10.2024
+            05.10.2024.
           </motion.p>
         </motion.div>
       </Slider>

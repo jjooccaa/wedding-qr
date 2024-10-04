@@ -131,9 +131,9 @@ export const FileUpload = () => {
             Dodaj fotografije
           </p>
           <p className="relative z-20 font-sans text-center font-normal text-olive-800 text-base mt-2">
-            Prevuci ili klikni da bi dodao fotografije <br />(Limit je 20 mb po fotografiji)
+            Prevuci ili klikni da bi dodao fotografije <br />(Limit je 25 mb po fotografiji)
           </p>
-          <div className="relative w-full mt-10 max-w-xl mx-auto">
+          <div className="relative w-full mt-10 max-w-xl p-8 mx-auto">
             {files.length > 0 &&
               files.map((file, idx) => (
                 <motion.div

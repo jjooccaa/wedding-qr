@@ -22,7 +22,7 @@ const GuestMessage = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <div className="bg-cream-50 pt-2 pb-20 px-2 md:px-0" ref={ref}>
+    <div className="bg-cream-50 pt-4 pb-20 px-2 md:px-0" ref={ref}>
       <AnimatePresence>
         {isInView && (
           <motion.div
@@ -53,9 +53,10 @@ const GuestMessage = () => {
               className="font-sans text-lg md:text-xl text-olive-900 mb-6 leading-relaxed"
               variants={itemAnimation}
             >
-              Izuzetno smo srećni što ste danas ovde s nama kako bismo zajedno proslavili početak novog i važnog poglavlja u našim životima. Vaše prisustvo čini ovaj dan još posebnijim, i radujemo se što ćemo deliti ove dragocene trenutke s vama.
-              <br/>
-              Želimo vam divan provod i nadamo se da će svaka uspomena biti ispunjena radošću i smehom. Živeli! 🥂
+              Izuzetno smo srećni što ste danas ovde sa nama kako bismo zajedno proslavili početak novog i važnog poglavlja u našim životima. Vaše prisustvo čini ovaj dan još posebnijim, i radujemo se što ćemo deliti ove dragocene trenutke s vama.
+              <br/><br/>
+              Želimo vam divan provod i nadamo se da će svaka uspomena biti ispunjena radošću i smehom. 
+              <br/>Živeli! 🥂
             </motion.p>
             <motion.p
               className="font-sans text-lg md:text-xl text-olive-900 mb-6 leading-relaxed"
@@ -67,7 +68,7 @@ const GuestMessage = () => {
               className="font-script text-2xl md:text-3xl text-olive-700 mt-10"
               variants={itemAnimation}
             >
-              Sa ljubavlju,<br />Jovan i Jovana
+              S' ljubavlju,<br />Jovan i Jovana
             </motion.p>
           </motion.div>
         )}
