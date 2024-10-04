@@ -36,9 +36,9 @@ const Carousel: React.FC = () => {
   }, [slides.length]);
 
   return (
-    <div className="bg-gradient-to-b from-neutral-900 to-neutral-800 w-full pt-20 pb-12">
-      <div className="relative  max-w-4xl mx-auto">
-        <h2 className="text-3xl font-script text-purple-300 pb-8 text-center">
+    <div className="bg-cream-50 w-full pt-20 pb-12">
+      <div className="relative max-w-4xl mx-auto">
+        <h2 className="text-3xl font-script text-olive-600 pb-8 text-center">
           Najnovije fotografije
         </h2>
         <div
@@ -47,7 +47,7 @@ const Carousel: React.FC = () => {
         >
           {isLoading ? (
             <div className="flex items-center justify-center w-full h-full">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-300"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-olive-500"></div>
             </div>
           ) : (
             <AnimatePresence initial={false}>
@@ -76,7 +76,7 @@ const Carousel: React.FC = () => {
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-purple-500' : 'bg-purple-300'
+              className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-olive-600' : 'bg-olive-400'
                 }`}
               onClick={() => setCurrentIndex(index)}
             />

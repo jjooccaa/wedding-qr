@@ -47,11 +47,11 @@ const ReceivePhotos: React.FC = () => {
   }, [inputEmail]);
 
   return (
-    <div className="flex justify-center bg-gradient-to-b from-neutral-800 to-neutral-900 py-12">
-      <div className="bg-neutral-800 mx-3 py-7 px-6 w-full max-w-3xl rounded-lg shadow-2xl border border-purple-500/20">
+    <div className="flex justify-center bg-cream-50 py-12">
+      <div className="bg-white mx-3 py-7 px-6 w-full max-w-3xl rounded-lg shadow-lg border border-olive-500/20">
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
-          <h2 className="text-4xl font-script text-purple-300 mb-4">Zatraži fotografije</h2>
-          <p className="text-xl text-neutral-300 mb-8 text-center">
+          <h2 className="text-4xl font-script text-olive-600 mb-4">Zatraži fotografije</h2>
+          <p className="text-xl text-olive-800 mb-8 text-center">
             Ako želite da dobijete link do svih fotografija, ostavite svoj email
           </p>
           <div className="w-full mb-6 relative">
@@ -60,9 +60,8 @@ const ReceivePhotos: React.FC = () => {
               value={inputEmail}
               onChange={handleOnInputChange}
               disabled={isSubmitted}
-              className={`w-full p-4 bg-neutral-700 text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 ${
-                isSubmitted ? 'opacity-50 cursor-not-allowed' : 'border-neutral-600'
-              } ${errorMessage ? 'border-red-500' : ''}`}
+              className={`w-full p-4 bg-cream-100 text-olive-900 border rounded-md focus:outline-none focus:ring-2 focus:ring-olive-500 transition-all duration-300 ${isSubmitted ? 'opacity-50 cursor-not-allowed' : 'border-olive-300'
+                } ${errorMessage ? 'border-red-500' : ''}`}
             />
             <AnimatePresence>
               {errorMessage && (
@@ -70,7 +69,7 @@ const ReceivePhotos: React.FC = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="mt-2 text-red-400 mb-4 text-sm absolute"
+                  className="mt-2 text-red-600 mb-4 text-sm absolute"
                 >
                   {errorMessage}
                 </motion.p>
@@ -84,7 +83,7 @@ const ReceivePhotos: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="text-purple-300 font-semibold my-6 text-center"
+                className="text-olive-600 font-semibold my-6 text-center"
               >
                 Link će vam stići u toku naredne nedelje.
               </motion.p>
@@ -105,7 +104,7 @@ const ReceivePhotos: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 disabled={isButtonDisabled || isSubmitted}
                 type="submit"
-                className="w-full mt-4 py-4 px-6 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                className="w-full mt-4 py-4 px-6 bg-olive-600 text-white font-semibold rounded-md hover:bg-olive-700 focus:outline-none focus:ring-2 focus:ring-olive-500 focus:ring-offset-2 focus:ring-offset-cream-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
               >
                 Prijavi se
               </motion.button>

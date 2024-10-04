@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-neutral-900 to-neutral-800 text-white py-8">
+    <footer className="bg-cream-100 text-olive-800 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex flex-col items-center">
           <div className="mb-4">
-            <h3 className="text-xl font-semibold">Kontakt</h3>
+            <h3 className="text-xl font-semibold text-olive-700">Kontakt</h3>
           </div>
           <div className="flex space-x-6">
             {socialLinks.map((link) => (
@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-200"
+                className="text-olive-600 hover:text-olive-800 transition-colors duration-200"
                 aria-label={link.name}
               >
                 <link.icon className="w-8 h-8" />
               </a>
             ))}
           </div>
-          <div className="mt-8 text-center text-sm text-neutral-400">
+          <div className="mt-8 text-center text-sm text-olive-600">
             <p>&copy; {new Date().getFullYear()} Jovan Antić. Sva prava zadržana</p>
           </div>
         </div>
