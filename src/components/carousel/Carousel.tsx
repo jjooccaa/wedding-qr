@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CarouselSlide from './CarouselSlide';
 import CarouselButton from './CarouselButton';
 import { BUCKET_NAME, SupabaseService } from '../../services/supabase.service';
 
-const Carousel: React.FC = () => {
+const Carousel = () => {
   const [slides, setSlides] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);

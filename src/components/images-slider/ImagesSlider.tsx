@@ -44,7 +44,7 @@ const ImagesSlider = () => {
   }, []);
 
   return (
-    <div className="relative h-dvh flex flex-col bg-cream-100">
+    <div className="relative h-dvh flex flex-col bg-cream-100 overflow-hidden">
       <Slider className="flex-grow" images={images}>
         <motion.div
           {...textAnimation}

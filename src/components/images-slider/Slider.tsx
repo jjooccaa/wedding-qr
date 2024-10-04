@@ -4,15 +4,13 @@ import { cn } from "../../lib/utils";
 import { SliderProps } from "../../types/props/SliderProps";
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 1.1 },
+  hidden: { opacity: 0 },
   visible: { 
-    opacity: 1, 
-    scale: 1,
+    opacity: 1,
     transition: { duration: 0.7, ease: [0.4, 0.0, 0.2, 1] }
   },
   exit: { 
-    opacity: 0, 
-    scale: 0.9,
+    opacity: 0,
     transition: { duration: 0.7, ease: [0.4, 0.0, 0.2, 1] }
   },
 };
@@ -67,7 +65,7 @@ const Slider = ({
   return (
     <div
       className={cn(
-        "overflow-hidden h-full w-full relative flex items-center justify-center",
+        "overflow-hidden w-full h-dvh relative flex items-center justify-center",
         className
       )}
     >
@@ -89,11 +87,16 @@ const Slider = ({
             exit="exit"
             className="absolute inset-0"
           >
-            <img
-              src={loadedImages[currentIndex]}
-              alt={`Slide ${currentIndex + 1}`}
-              className="w-full h-full object-cover"
-            />
+            <div className="w-full h-full bg-gray-200">
+              <img
+                src={loadedImages[currentIndex]}
+                alt={`Slide ${currentIndex + 1}`}
+                className="w-full h-full object-cover opacity-0 transition-opacity duration-300"
+                onLoad={(e) => {
+                  (e.target as HTMLImageElement).classList.remove('opacity-0');
+                }}
+              />
+            </div>
           </motion.div>
         </AnimatePresence>
       )}
