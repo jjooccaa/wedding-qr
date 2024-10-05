@@ -53,9 +53,9 @@ const GuestMessage = () => {
               className="font-sans text-lg md:text-xl text-olive-900 mb-6 leading-relaxed"
               variants={itemAnimation}
             >
-              Izuzetno smo srećni što ste danas ovde sa nama kako bismo zajedno proslavili početak novog i važnog poglavlja u našim životima. Vaše prisustvo čini ovaj dan još posebnijim, i radujemo se što ćemo deliti ove dragocene trenutke s vama.
+              Izuzetno smo srećni što ste danas ovde sa nama kako bismo zajedno proslavili početak novog i važnog poglavlja u našim životima. Vaše prisustvo čini ovaj dan još posebnijim, i radujemo se što ćemo deliti ove dragocene trenutke sa vama.
               <br/>
-              Želimo vam divan provod i nadamo se da će svaka uspomena biti ispunjena radošću i smehom. 
+              Želimo vam lep provod i nadamo se da će svaka uspomena biti ispunjena radošću i smehom. 
               <br/>
               <br/>
               Za sve ljubitelje rakije među vama, imamo mali detalj: rakija koja će se danas služiti proizvedena je u godini Jovaninog rođenja, što joj daje poseban šmek i značaj.

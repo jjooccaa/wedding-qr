@@ -4,6 +4,7 @@ import Footer from "../components/footer/Footer";
 import GuestMessage from "../components/guest-message/GuestMessage";
 import ImagesSlider from "../components/images-slider/ImagesSlider";
 import ReceivePhotos from "../components/receive-photos/ReceivePhotos";
+import Timeline from "../components/timeline/Timeline";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <GuestMessage />
       <FileUpload />
       <Carousel />
+      <Timeline />
       <ReceivePhotos />
       <Footer />
     </>
