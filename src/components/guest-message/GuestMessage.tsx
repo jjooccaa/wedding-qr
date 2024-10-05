@@ -54,15 +54,19 @@ const GuestMessage = () => {
               variants={itemAnimation}
             >
               Izuzetno smo srećni što ste danas ovde sa nama kako bismo zajedno proslavili početak novog i važnog poglavlja u našim životima. Vaše prisustvo čini ovaj dan još posebnijim, i radujemo se što ćemo deliti ove dragocene trenutke s vama.
-              <br/><br/>
+              <br/>
               Želimo vam divan provod i nadamo se da će svaka uspomena biti ispunjena radošću i smehom. 
-              <br/>Živeli! 🥂
+              <br/>
+              <br/>
+              Za sve ljubitelje rakije među vama, imamo mali detalj: rakija koja će se danas služiti proizvedena je u godini Jovaninog rođenja, što joj daje poseban šmek i značaj.
+              <br/>
+              Živeli! 🥂
             </motion.p>
             <motion.p
               className="font-sans text-lg md:text-xl text-olive-900 mb-6 leading-relaxed"
               variants={itemAnimation}
             >
-              P.S. Za sve ljubitelje rakije među vama, imamo mali detalj: rakija koja će se danas služiti proizvedena je u godini Jovaninog rođenja, što joj daje poseban šarm i značaj.
+              P.S. Kada ugledate tortu, upalite prskalice!
             </motion.p>
             <motion.p
               className="font-script text-2xl md:text-3xl text-olive-700 mt-10"
