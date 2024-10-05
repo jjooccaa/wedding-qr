@@ -23,7 +23,7 @@ const imageVariants = {
 const Timeline = () => {
   const data = [
     {
-      title: "28.07.2017",
+      title: "15.07.2017",
       content: (
         <div>
           <p className="text-olive-700 text-sm md:text-base font-normal mb-4">
