@@ -36,6 +36,7 @@ const ImagesSlider = () => {
         import("../../assets/background-images/background-three.jpg"),
         import("../../assets/background-images/background-five.jpg"),
         import("../../assets/background-images/background-six.jpg"),
+        import("../../assets/background-images/background_seven.jpg")
       ]);
       setImages(imageModules.map((module) => module.default));
     };
